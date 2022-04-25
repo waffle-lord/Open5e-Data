@@ -1,10 +1,10 @@
-﻿using Open5e_Data.Interfaces;
-using Open5e_Data.Interfaces.Database;
-using Open5e_Data.Model.Database;
+﻿using Open5e_Data.Database.Accessors;
+using Open5e_Data.Database.Interfaces;
+using Open5e_Data.Interfaces;
 
 namespace Open5e_Data.Servers
 {
-    public class LiteDbServer : IOpen5eDatabase
+    internal class LiteDbServer : IOpen5eDatabase
     {
         public ISpellsAccessor Spells { get; private set; } = new LiteDbSpellsAccessor();
     }

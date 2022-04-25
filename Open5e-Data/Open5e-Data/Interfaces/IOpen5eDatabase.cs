@@ -1,4 +1,4 @@
-﻿using Open5e_Data.Interfaces.Database;
+﻿using Open5e_Data.Database.Interfaces;
 
 namespace Open5e_Data.Interfaces
 {

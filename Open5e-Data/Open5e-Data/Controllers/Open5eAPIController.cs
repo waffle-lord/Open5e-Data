@@ -1,4 +1,6 @@
 ﻿using Open5e_Data.Interfaces;
+using Open5e_Data.Model;
+using Open5e_Data.Servers;
 
 namespace Open5e_Data.Controllers
 {
@@ -6,9 +8,18 @@ namespace Open5e_Data.Controllers
     {
         private IOpen5eServer _server { get; set; }
 
-        public Open5eAPIController(IOpen5eServer server)
+        public Open5eAPIController(IOpen5eServer server = null)
         {
-            _server = server;
+            _server = server ?? new Open5eServer();
+        }
+
+        public async Task<List<Spell>> GetSpellsAsync()
+        {
+            var response = await _server.GetSpellsAsync();
+
+            if (response == null) return new List<Spell>();
+
+            return response.Results ?? new List<Spell>();
         }
     }
 }

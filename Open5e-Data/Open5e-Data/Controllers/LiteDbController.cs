@@ -1,4 +1,5 @@
 ﻿using Open5e_Data.Interfaces;
+using Open5e_Data.Servers;
 
 namespace Open5e_Data.Controllers
 {
@@ -6,9 +7,11 @@ namespace Open5e_Data.Controllers
     {
         private IOpen5eDatabase _database { get; set; }
 
-        public LiteDbController(IOpen5eDatabase database)
+        public LiteDbController(IOpen5eDatabase database = null)
         {
-            _database = database;
+            _database = database ?? new LiteDbServer();
         }
+
+
     }
 }

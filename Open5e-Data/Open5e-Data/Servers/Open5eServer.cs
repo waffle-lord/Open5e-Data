@@ -4,7 +4,7 @@ using Open5e_Data.Model;
 
 namespace Open5e_Data.Servers
 {
-    public class Open5eServer : IOpen5eServer
+    internal class Open5eServer : IOpen5eServer
     {
         private static HttpClient _client = new HttpClient();
 
@@ -24,37 +24,37 @@ namespace Open5e_Data.Servers
             return JsonConvert.DeserializeObject<Open5eResponse<T>>(responseString);
         }
 
-        public void GetClasses()
+        public void GetClassesAsync()
         {
             throw new NotImplementedException();
         }
 
-        public void GetConditions()
+        public void GetConditionsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public void GetMagicItems()
+        public void GetMagicItemsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public void GetMonsters()
+        public void GetMonstersAsync()
         {
             throw new NotImplementedException();
         }
 
-        public void GetRaces()
+        public void GetRacesAsync()
         {
             throw new NotImplementedException();
         }
 
-        public void GetSections()
+        public void GetSectionsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Open5eResponse<Spell>> GetSpells(int limit = 9999)
+        public async Task<Open5eResponse<Spell>> GetSpellsAsync(int limit = 9999)
         {
             var response = await ResponseHandler<Spell>($"/spells/?limit={limit}");
 
@@ -63,7 +63,7 @@ namespace Open5e_Data.Servers
             return response;
         }
 
-        public void GetWeapons()
+        public void GetWeaponsAsync()
         {
             throw new NotImplementedException();
         }
